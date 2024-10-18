@@ -1,6 +1,17 @@
 import os
 import numpy as np
 import netCDF4 as nc
+import climate_learn as cl
+
+#Download Files
+root_directory = "/content/drive/My Drive/NN/climate-learn"
+variable = "constants"
+cl.data.download_weatherbench(
+    dst=f"{root_directory}/{variable}",
+    dataset="era5",
+    variable=variable,
+    resolution=5.625  # optional, default is 5.625
+)
 
 base_path_2 = os.path.join('./', '2m_temperature/')
 base_path_850 = os.path.join('./', 'temperature_850/')
